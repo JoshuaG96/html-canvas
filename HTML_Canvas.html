@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Canvas Assessment</title>
+</head>
+<body>
+  <h1>HTML Canvas Assessment</h1>
+
+  <!-- File 1: Germany -->
+  <h2>1. Flag of Germany</h2>
+  <canvas id="germany" width="500" height="300"></canvas>
+
+  <!-- File 2: Gradients -->
+  <h2>2. Canvas Gradients</h2>
+  <canvas id="gradients" width="900" height="320" style="border:1px solid #ccc;"></canvas>
+
+  <!-- File 3: Benin -->
+  <h2>3. Flag of Benin</h2>
+  <canvas id="benin" width="600" height="400"></canvas>
+
+  <script>
+    // ---------- File 1: Germany ----------
+    {
+      const canvas = document.getElementById("germany");
+      const ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "#000000"; // black
+      ctx.fillRect(0, 0, 500, 100);
+
+      ctx.fillStyle = "#DD0000"; // red
+      ctx.fillRect(0, 100, 500, 100);
+
+      ctx.fillStyle = "#FFCE00"; // gold
+      ctx.fillRect(0, 200, 500, 100);
+    }
+
+    // ---------- File 2: Gradients ----------
+    {
+      const canvas = document.getElementById("gradients");
+      const ctx = canvas.getContext("2d");
+
+      // Linear gradient fill with fillRect
+      const linear = ctx.createLinearGradient(20, 0, 280, 0);
+      linear.addColorStop(0, "#ff0000");
+      linear.addColorStop(0.5, "#ffff00");
+      linear.addColorStop(1, "#0000ff");
+      ctx.fillStyle = linear;
+      ctx.fillRect(20, 40, 260, 200);
+
+      // Radial gradient fill with fillRect
+      const radial = ctx.createRadialGradient(450, 140, 10, 450, 140, 110);
+      radial.addColorStop(0, "#ffffff");
+      radial.addColorStop(0.5, "#00c853");
+      radial.addColorStop(1, "#003300");
+      ctx.fillStyle = radial;
+      ctx.fillRect(320, 40, 260, 200);
+
+      // Gradient stroke with strokeRect
+      const strokeGrad = ctx.createLinearGradient(620, 40, 880, 240);
+      strokeGrad.addColorStop(0, "#ff4081");
+      strokeGrad.addColorStop(0.5, "#7c4dff");
+      strokeGrad.addColorStop(1, "#00bcd4");
+      ctx.strokeStyle = strokeGrad;
+      ctx.lineWidth = 15;
+      ctx.strokeRect(625, 45, 250, 190);
+
+      // Labels
+      ctx.fillStyle = "#000000";
+      ctx.font = "16px Arial";
+      ctx.fillText("Linear gradient fill", 70, 270);
+      ctx.fillText("Radial gradient fill", 375, 270);
+      ctx.fillText("Gradient stroke", 690, 270);
+    }
+
+    // ---------- File 3: Benin ----------
+    {
+      const canvas = document.getElementById("benin");
+      const ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = "#008751"; // green
+      ctx.fillRect(0, 0, 240, 400);
+
+      ctx.fillStyle = "#FCD116"; // yellow
+      ctx.fillRect(240, 0, 360, 200);
+
+      ctx.fillStyle = "#E8112D"; // red
+      ctx.fillRect(240, 200, 360, 200);
+    }
+  </script>
+</body>
+</html>
